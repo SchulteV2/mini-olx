@@ -1,0 +1,43 @@
+textarea {
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+table img {
+    max-width: 70px;
+}
+
+.show-produto .btn {
+    margin-left: 20px;
+}
+
+section#content {
+    margin-top:30px;
+}
+
+section#content h2 {
+    margin-bottom: 30px;
+}
+
+section#content .produto {
+    margin-bottom: 30px;
+}
+
+section#content .produto p {
+    text-align: justify;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+section#content .produto .border {
+    border: 1px solid #cecece;
+    border-radius: 8px 0px 8px 0px;
+    padding: 15px;
+}
+
+section#content img {
+    width: 100%
+}
