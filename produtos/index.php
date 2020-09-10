@@ -1,5 +1,6 @@
 <?php
     require_once('src/dao/ProdutoDAO.php');
+    require_once('src/utils/FlashMessages.php');
 
     $stmt = ProdutoDAO::getAll();
 
@@ -20,6 +21,7 @@
 
     <section id="content">
         <div class="container">
+            <?php include("partials/_flash_messages.php") ?>
             <div class="row">
                 <?php include("partials/_sidebar.php") ?>
 
@@ -41,7 +43,7 @@
                                 <td><?= $row->id ?></td>
                                 <td>
                                     <?php if($row->url_imagem_produto) : ?>
-                                        <img src="<?= $row->url_imagem_produto ?>" alt="<?= $produto->nome ?>" />
+                                        <img src="<?= $row->url_imagem_produto ?>" alt="<?= $row->nome ?>" />
                                     <?php else : ?>
                                         <img src="/img/no-image.png" />
                                     <?php endif ?>
@@ -63,6 +65,6 @@
         </div>
     </section>
 
-    <?php include("../partials/_javascript_import.php") ?>
+    <?php include("partials/_javascript_import.php") ?>
 </body>
 </html>

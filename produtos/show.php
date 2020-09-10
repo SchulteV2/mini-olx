@@ -62,7 +62,7 @@
         </div>
     </section>
 
-    <?php include("../partials/_javascript_import.php") ?>
+    <?php include("partials/_javascript_import.php") ?>
 </body>
 
 </html>

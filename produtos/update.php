@@ -1,11 +1,11 @@
 <?php
     require_once('src/dao/ProdutoDAO.php');
     require_once('src/utils/ImageUpload.php');
+    require_once('src/utils/FlashMessages.php');
     
     $id = $_POST['id'];
     $nome = $_POST['nome'];
     $preco = $_POST['preco'];
-    $imagem = $_POST['imagem'];
     $categoria_id = $_POST['categoria_id'];
     $descricao = $_POST['descricao'];
 
@@ -18,11 +18,13 @@
     $return = $imageUpload->upload();
 
     if($return !== true) {
-        header("Location: /produtos/edit.php?id=$id&erro=" . implode("; ", $return));
+        FlashMessages::setMessage($return, "error");
+        FlashMessages::setMessage("Deu erro mas não fique triste");
+        header("Location: /produtos/edit.php?id=$id");
         exit(0);
     }
 
-    $stmt = ProdutoDAO::update($id, $nome, $preco, $imageUpload->uri, $categoria_id, $descricao);
-
+    $return = ProdutoDAO::update($id, $nome, $preco, $imageUpload->uri, $categoria_id, $descricao);
+    FlashMessages::setMessage("Produto atualizado com sucesso.");
     header("Location: /produtos/")
 ?>

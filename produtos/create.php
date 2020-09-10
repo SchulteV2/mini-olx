@@ -1,6 +1,7 @@
 <?php
     require_once('src/dao/ProdutoDAO.php');
     require_once('src/utils/ImageUpload.php');
+    require_once('src/utils/FlashMessages.php');
     
     $nome = $_POST['nome'];
     $preco = $_POST['preco'];
@@ -21,6 +22,6 @@
     }
 
     ProdutoDAO::create($nome, $preco, $imageUpload->uri, $categoria_id, $descricao);
-
+    FlashMessages::setMessage("Produto adicionado com sucesso!");
     header("Location: /produtos/")
 ?>

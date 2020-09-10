@@ -5,8 +5,7 @@
 
     $stmt = CategoriaDAO::getById($id);
 
-    $categoria = $stmt->fetch(PDO::FETCH_OBJ);
-
+    $cat = $stmt->fetch(PDO::FETCH_OBJ);
 ?>
 
 <!DOCTYPE html>
@@ -30,12 +29,12 @@
                 <div class="col-md-9">
                     <h2>Edição de Categorias</h2>
 
-                    <form action="/categorias/update.php?id=<?= $categoria->id ?>" method="POST">
-                        <input type="hidden" name="id" value="<?= $categoria->id ?>" />
+                    <form action="/categorias/update.php?id=<?= $cat->id?>" method="POST">
+                        <input type="hidden" name="id" value="<?= $cat->id ?>" />
                         <div class="form-group row">
                             <label for="nome" class="col-sm-2 col-form-label">Nome</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="nome" name="nome" value="<?= $categoria->nome ?>" />
+                                <input type="text" class="form-control" id="nome" name="nome" value="<?= $cat->nome ?>" />
                             </div>
                         </div>
                             <p>
@@ -49,7 +48,7 @@
         </div>
     </section>
 
-    <?php include("../partials/_javascript_import.php") ?>
+    <?php include("partials/_javascript_import.php") ?>
 </body>
 
 </html>
