@@ -1,7 +1,8 @@
 <?php
     require_once('src/dao/CategoriaDAO.php');
     require_once('src/dao/ProdutoDAO.php');
-    
+    require_once('src/utils/FlashMessages.php');
+
     $id = $_GET['id'];
 
     $stmt_cat = CategoriaDAO::getAll();
@@ -26,9 +27,9 @@
 
     <section id="content">
         <div class="container">
+            <?php include("partials/_flash_messages.php") ?>
             <div class="row">
                 <?php include("partials/_sidebar.php") ?>
-
                 <div class="col-md-9 show-produto">
                         <h2>
                             <?= $produto->nome ?>

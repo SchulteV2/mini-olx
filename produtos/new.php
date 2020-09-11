@@ -1,9 +1,10 @@
 <?php
     require_once('src/dao/CategoriaDAO.php');
+    require_once('src/utils/FlashMessages.php');
+
 
     $stmt = CategoriaDAO::getAll();
 
-    $erro = isset($_GET['erro']) ? $_GET['erro'] : null;
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +22,7 @@
 
     <section id="content">
         <div class="container">
-            <?php if(isset($erro)) : ?>
-                <p class="alert alert-danger"><?= $erro ?></p>
-            <?php endif ?>
+            <?php include("partials/_flash_messages.php") ?>
             <div class="row">
                 <?php include("partials/_sidebar.php") ?>
                 

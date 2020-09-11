@@ -17,7 +17,8 @@
     $return = $imageUpload->upload();
 
     if($return !== true) {
-        header("Location: /produtos/new.php?erro=" . implode("; ", $return));
+        header("Location: /produtos/new.php");
+        FlashMessages::setMessage($return, "error");
         exit(0);
     }
 
