@@ -1,7 +1,10 @@
 <?php
     set_include_path( '..' . DIRECTORY_SEPARATOR);
 
-    require_once('src/dao/ProdutoDAO.php');
+    require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+    require $_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php';
+
+    use App\dao\ProdutoDAO;
 
     if(isset($_GET['categoria_id'])) {
         $stmt_produtos = ProdutoDAO::getByCategoriaId($_GET['categoria_id']);

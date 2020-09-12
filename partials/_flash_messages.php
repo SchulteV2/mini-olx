@@ -1,5 +1,6 @@
 <?php
-require_once('src/utils/FlashMessages.php');
+use App\utils\FlashMessages;
+
 
 $errors = FlashMessages::getMessages('error');
 // Não precisa colocar o 'info', pq já esta como padrão

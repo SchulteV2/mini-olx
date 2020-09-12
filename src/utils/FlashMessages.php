@@ -1,6 +1,6 @@
 <?php
-
-session_start();
+    
+namespace App\utils;
 
     class FlashMessages {
 

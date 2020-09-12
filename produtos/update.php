@@ -1,7 +1,10 @@
 <?php
-    require_once('src/dao/ProdutoDAO.php');
-    require_once('src/utils/ImageUpload.php');
-    require_once('src/utils/FlashMessages.php');
+    require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+    require $_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php';
+
+    use App\dao\ProdutoDAO;
+    use App\utils\FlashMessages;
+    use App\utils\ImageUpload;
     
     $id = $_POST['id'];
     $nome = $_POST['nome'];

@@ -1,6 +1,8 @@
 <?php
-    require_once('src/dao/ProdutoDAO.php');
-    require_once('src/utils/FlashMessages.php');
+    require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+    require $_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php';
+
+    use App\dao\ProdutoDAO;
 
     $stmt = ProdutoDAO::getAll();
 

@@ -1,7 +1,17 @@
 <?php
-    require_once('src/dao/ProdutoDAO.php');
-    require_once('src/utils/ImageUpload.php');
-    require_once('src/utils/FlashMessages.php');
+    require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+    require $_SERVER['DOCUMENT_ROOT'] . '/bootstrap.php';
+
+    use Monolog\Logger;
+    use Monolog\Handler\StreamHandler;
+    use App\dao\ProdutoDAO;
+    use App\utils\FlashMessages;
+    use App\utils\ImageUpload;
+    
+    // create a log channel
+    $log = new Logger('miniolx-log');
+    $log->pushHandler(new StreamHandler($_SERVER['DOCUMENT_ROOT'] . 'logs/app.log', Logger::WARNING));
+
     
     $nome = $_POST['nome'];
     $preco = $_POST['preco'];
@@ -17,8 +27,10 @@
     $return = $imageUpload->upload();
 
     if($return !== true) {
-        header("Location: /produtos/new.php");
         FlashMessages::setMessage($return, "error");
+        $log->warning('#1 - Erro ao validar a imagem');
+        $log->error('#2 - Erro ao validar a imagem');
+        header("Location: /produtos/new.php");
         exit(0);
     }
 

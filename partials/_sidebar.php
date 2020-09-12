@@ -1,5 +1,5 @@
 <?php 
-    require_once('src/dao/CategoriaDAO.php');
+    use App\dao\CategoriaDAO;
 
     $stmt_sidebar_categoria = CategoriaDAO::getAll();
 ?>

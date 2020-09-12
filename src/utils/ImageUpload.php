@@ -1,4 +1,6 @@
 <?php
+namespace App\utils;
+
     class ImageUpload {
         public $pasta_alvo;
         public $nome;

@@ -1,5 +1,7 @@
 <?php
-require_once('src/utils/ConnectionFactory.php');
+namespace App\dao;
+use App\utils\ConnectionFactory;
+use \PDO;
 
 class CategoriaDAO {
 
